@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>TODO</title>
+
+    <style>
+        body{
+            background-color: rgb(136, 94, 212);
+        }
+        h1{
+            text-align: center;
+        }
+        .main{
+            width: 100%;  
+        }
+        .sub{
+            width: 40%;
+            margin: 70px auto;
+            height: 300px;
+            border: none;
+            background-color: gray;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+        }
+        .form{
+            display: flex;
+            justify-content: space-around;
+            padding-top: 25px;
+        }
+        input{
+        width: 60%;
+        border-radius: 20px;
+        border: none;
+        caret-color: green;
+        outline: none;
+        padding: 10px;
+    }
+    h1{
+        color: white;
+        text-align: center;
+    }
+    button{
+        padding:10px 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: yellow;
+        font-weight: 500; 
+    }
+    button:hover{
+            background-color: green;
+            color: white;
+        }
+        li{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+        li button:hover{
+            background-color: red ; 
+        }
+        ul{ width: 100%;
+            overflow: auto;
+            padding: 0;
+            height: 70%;
+        }
+        @media only screen and (max-width: 500px) {
+            .sub{
+            width: 80%;
+            }
+        }
+            @media only screen and (min-width: 950px) {
+            li{
+                margin-right: 20px;
+                margin-left: 36px;
+             }   
+}
+           
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>TODO List</h1>
+        <div class="sub">
+            <div class="form">
+                <input placeholder="Enter something..."  id="in"  type="text">
+                <button onclick="ad()">Add</button>
+            </div>
+            <ul id="result"> </ul>
+        </div>
+    </div>
+
+    <script>
+        var input = document.getElementById("in")
+        var result=document.getElementById("result")
+       
+        function ad(){
+            if(input.value==""){
+                alert("Enter something")
+            }
+            else{
+                var litem=document.createElement("li") 
+                litem.innerHTML=input.value + "<button onclick='del()'>delete</button"
+                result.append(litem)
+                input.value=""
+            }
+        }
+        function del(){
+            event.target.parentElement.remove()
+        }
+    </script>
+</body>
+</html>
